@@ -1,0 +1,28 @@
+name: Foundry Security Examples
+
+on:
+  push:
+    paths:
+      - "src/**"
+      - "test/**"
+      - "foundry.toml"
+      - ".github/workflows/foundry-tests.yml"
+  pull_request:
+    paths:
+      - "src/**"
+      - "test/**"
+      - "foundry.toml"
+      - ".github/workflows/foundry-tests.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: foundry-rs/foundry-toolchain@v1
+      - name: Run reproducible security tests
+        run: forge test -vv
