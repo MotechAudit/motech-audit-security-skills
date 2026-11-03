@@ -29,14 +29,15 @@ Use the `skills/solidity-security-review/SKILL.md` workflow to review Solidity c
 
 ## Reproducible security examples
 
-This repository contains two educational vulnerability/mitigation pairs with Foundry regression tests:
+This repository contains educational vulnerability/mitigation examples with Foundry regression tests:
 
 | Topic | Vulnerable fixture | Mitigated fixture | Test |
 | --- | --- | --- | --- |
 | Reentrancy | [`VulnerableVault.sol`](src/VulnerableVault.sol) | [`SafeVault.sol`](src/SafeVault.sol) | [`Reentrancy.t.sol`](test/Reentrancy.t.sol) |
+| Arbitrary delegatecall | [`VulnerableDelegatecallVault.sol`](src/VulnerableDelegatecallVault.sol) | [`SafeDelegatecallVault.sol`](src/SafeDelegatecallVault.sol) | [`Delegatecall.t.sol`](test/Delegatecall.t.sol) |
 | Missing access control | [`VulnerableAccessVault.sol`](src/VulnerableAccessVault.sol) | [`SafeAccessVault.sol`](src/SafeAccessVault.sol) | [`AccessControl.t.sol`](test/AccessControl.t.sol) |
 
-The reentrancy example demonstrates an external call before balance updates; the access-control example demonstrates an unrestricted privileged withdrawal. **The vulnerable contract is for education only; never deploy it with real assets.**
+The reentrancy example demonstrates an external call before balance updates; the access-control example demonstrates an unrestricted privileged withdrawal; the delegatecall example demonstrates an unauthorized storage-slot overwrite. See [`docs/delegatecall-security.md`](docs/delegatecall-security.md) for details. **The vulnerable contract is for education only; never deploy it with real assets.**
 
 Prerequisite: install [Foundry](https://book.getfoundry.sh/getting-started/installation).
 
