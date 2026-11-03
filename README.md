@@ -1,3 +1,5 @@
+<p align="center"><img src="motech-audit-logo.png" alt="Motech Audit official logo" width="220"></p>
+
 # Motech Audit Security Skills
 
 Open-source agent skills for Ethereum smart contract security reviews, maintained by **Motech Audit**.
