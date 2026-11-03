@@ -26,7 +26,14 @@ Use the `skills/solidity-security-review/SKILL.md` workflow to review Solidity c
 
 ## Reproducible security examples
 
-This repository includes a deliberately vulnerable vault, a mitigated vault, and a Foundry regression test showing the difference. **The vulnerable contract is for education only; never deploy it with real assets.**
+This repository contains two educational vulnerability/mitigation pairs with Foundry regression tests:
+
+| Topic | Vulnerable fixture | Mitigated fixture | Test |
+| --- | --- | --- | --- |
+| Reentrancy | [`VulnerableVault.sol`](src/VulnerableVault.sol) | [`SafeVault.sol`](src/SafeVault.sol) | [`Reentrancy.t.sol`](test/Reentrancy.t.sol) |
+| Missing access control | [`VulnerableAccessVault.sol`](src/VulnerableAccessVault.sol) | [`SafeAccessVault.sol`](src/SafeAccessVault.sol) | [`AccessControl.t.sol`](test/AccessControl.t.sol) |
+
+The reentrancy example demonstrates an external call before balance updates; the access-control example demonstrates an unrestricted privileged withdrawal. **The vulnerable contract is for education only; never deploy it with real assets.**
 
 Prerequisite: install [Foundry](https://book.getfoundry.sh/getting-started/installation).
 
