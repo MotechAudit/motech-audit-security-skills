@@ -22,10 +22,25 @@ Use the `skills/solidity-security-review/SKILL.md` workflow to review Solidity c
 - Distinguish confirmed findings from hypotheses and informational observations.
 - Do not fabricate tool output, line numbers, or exploit demonstrations.
 
+## Reproducible security examples
+
+This repository includes a deliberately vulnerable vault, a mitigated vault, and a Foundry regression test showing the difference. **The vulnerable contract is for education only; never deploy it with real assets.**
+
+Prerequisite: install [Foundry](https://book.getfoundry.sh/getting-started/installation).
+
+```bash
+git clone https://github.com/MotechAudit/motech-audit-security-skills.git
+cd motech-audit-security-skills
+forge test -vv
+python3 scripts/validate_skills.py
+```
+
+The tests are also executed by [Foundry Security Examples](https://github.com/MotechAudit/motech-audit-security-skills/actions/workflows/foundry-tests.yml) in GitHub Actions. A passing fixture test validates these examples only; it does not prove unrelated contracts secure.
+
 ## Roadmap
 
-- [ ] Add reproducible Solidity fixtures and Foundry tests
-- [ ] Add CI validation for examples
+- [x] Add reproducible Solidity fixtures and Foundry tests
+- [x] Add CI validation for examples
 - [ ] Document agent integrations and version compatibility
 - [ ] Publish release and request consideration for ethereum.org developer tools
 
