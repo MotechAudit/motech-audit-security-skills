@@ -19,10 +19,16 @@ contract UnauthorizedCaller {
     }
 }
 
+interface VmFunding {
+    function deal(address account, uint256 newBalance) external;
+}
+
 contract AccessControlTest {
+    VmFunding constant vm = VmFunding(address(uint160(uint256(keccak256("hevm cheat code")))));
     receive() external payable {}
 
     function testUnauthorizedCallerCanDrainVulnerableVault() public {
+        vm.deal(address(this), 1 ether);
         VulnerableAccessVault vault = new VulnerableAccessVault{value: 1 ether}();
         UnauthorizedCaller caller = new UnauthorizedCaller();
         caller.withdrawVulnerable(vault);
@@ -31,6 +37,7 @@ contract AccessControlTest {
     }
 
     function testUnauthorizedCallerCannotDrainSafeVault() public {
+        vm.deal(address(this), 1 ether);
         SafeAccessVault vault = new SafeAccessVault{value: 1 ether}();
         UnauthorizedCaller caller = new UnauthorizedCaller();
         bool ok = caller.withdrawSafe(vault);
@@ -40,6 +47,7 @@ contract AccessControlTest {
     }
 
     function testOwnerCanWithdrawSafeVault() public {
+        vm.deal(address(this), 1 ether);
         SafeAccessVault vault = new SafeAccessVault{value: 1 ether}();
         vault.withdrawAll(payable(address(this)));
         require(address(vault).balance == 0, "owner withdrawal failed");
