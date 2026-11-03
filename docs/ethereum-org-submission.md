@@ -1,6 +1,6 @@
 # Ethereum.org Developer Tool Submission — Draft
 
-**Status:** Draft only. Do not submit until reproducible tests and documentation have been checked.
+**Status:** Submission prepared. The Foundry and skill-validation workflows have passed; acceptance remains at ethereum.org maintainers' discretion.
 
 Official guidance: https://ethereum.org/contributing/adding-developer-tools/
 Suggested developer tool form: https://github.com/ethereum/ethereum-org-website/issues/new?template=suggest_dev_tool.yaml
@@ -22,9 +22,9 @@ Combines a structured security-review skill with paired vulnerable and mitigated
 - src/ and test/ Foundry demonstration
 
 ## Before submitting
-- [ ] Confirm Foundry CI passes on the current commit
-- [ ] Ensure README contains complete installation and test commands
-- [ ] Verify project claims, links, license and usage limitations
+- [x] Confirm Foundry CI passed for the security example commit: https://github.com/MotechAudit/motech-audit-security-skills/actions/runs/41702167685
+- [x] README includes Foundry installation and test commands
+- [x] Verify public repository, license, usage limitations and logo are present
 - [ ] Provide evidence of actual use and any external feedback, without fabricating adoption
 - [ ] Confirm proposed category and contribution instructions are current
 
