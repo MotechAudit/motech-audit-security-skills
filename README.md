@@ -2,6 +2,9 @@
 
 # Motech Audit Security Skills
 
+[![Latest release](https://img.shields.io/github/v/release/MotechAudit/motech-audit-security-skills)](https://github.com/MotechAudit/motech-audit-security-skills/releases/latest)
+[![Foundry tests](https://github.com/MotechAudit/motech-audit-security-skills/actions/workflows/foundry-tests.yml/badge.svg)](https://github.com/MotechAudit/motech-audit-security-skills/actions/workflows/foundry-tests.yml)
+
 Open-source agent skills for Ethereum smart contract security reviews, maintained by **Motech Audit**.
 
 > Early-stage project. These skills assist security research and do not replace independent manual auditing. No Ethereum.org affiliation or endorsement is claimed.
@@ -51,7 +54,7 @@ The tests are also executed by [Foundry Security Examples](https://github.com/Mo
 - [x] Add reproducible Solidity fixtures and Foundry tests
 - [x] Add CI validation for examples
 - [ ] Document agent integrations and version compatibility
-- [ ] Publish release and request consideration for ethereum.org developer tools
+- [x] Publish initial v0.1.0 release and submit ethereum.org developer-tool suggestion ([issue #19684](https://github.com/ethereum/ethereum-org-website/issues/19684))
 
 ## Contributing
 
