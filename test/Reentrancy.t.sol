@@ -48,11 +48,16 @@ contract SafeReentrantAttacker {
     }
 }
 
+interface Vm {
+    function deal(address account, uint256 newBalance) external;
+}
+
 contract ReentrancyTest {
+    Vm constant vm = Vm(address(uint160(uint256(keccak256('hevm cheat code')))));
     receive() external payable {}
 
     function testVulnerableVaultCanBeDrained() public {
-        require(address(this).balance >= 4 ether, "fund test");
+        vm.deal(address(this), 4 ether);
         VulnerableVault vault = new VulnerableVault();
         vault.deposit{value: 3 ether}();
         ReentrantAttacker attacker = new ReentrantAttacker(vault);
@@ -63,7 +68,7 @@ contract ReentrancyTest {
     }
 
     function testSafeVaultPreventsReentrantDrain() public {
-        require(address(this).balance >= 4 ether, "fund test");
+        vm.deal(address(this), 4 ether);
         SafeVault vault = new SafeVault();
         vault.deposit{value: 3 ether}();
         SafeReentrantAttacker attacker = new SafeReentrantAttacker(vault);
