@@ -43,7 +43,7 @@ contract SafeReentrantAttacker {
     receive() external payable {
         if (address(target).balance >= 1 ether && reentryCount < 2) {
             reentryCount++;
-            target.withdraw();
+            try target.withdraw() {} catch {}
         }
     }
 }
