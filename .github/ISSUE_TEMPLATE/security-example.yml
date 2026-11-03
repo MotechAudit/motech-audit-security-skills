@@ -1,0 +1,45 @@
+name: Propose a security example
+description: Suggest an educational Solidity vulnerability and its mitigation
+title: "[Example] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing! Submit only code you own or are authorized to share. Never post private client contracts, keys, or exploit instructions targeting live systems.
+  - type: input
+    id: pattern
+    attributes:
+      label: Vulnerability pattern
+      description: e.g. reentrancy, access control, unchecked external call
+      placeholder: Reentrancy
+    validations:
+      required: true
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Minimal educational scenario
+      description: Describe a safe, reproducible local example and its intended lesson.
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Expected mitigation
+      description: Explain the defensive change and any limitations.
+    validations:
+      required: true
+  - type: textarea
+    id: test
+    attributes:
+      label: Proposed Foundry test
+      description: Describe assertions that distinguish vulnerable and mitigated behavior.
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Safety and disclosure
+      options:
+        - label: This proposal contains no confidential customer code, credentials, or unpublished vulnerabilities in live systems.
+          required: true
