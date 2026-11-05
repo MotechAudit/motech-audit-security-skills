@@ -20,6 +20,8 @@ Use the `skills/solidity-security-review/SKILL.md` workflow to review Solidity c
 3. Ask the assistant to follow the skill instructions and return findings in the specified format.
 4. Independently reproduce suspected vulnerabilities using Foundry or other appropriate tools before treating them as confirmed.
 
+For a complete first run, follow [Getting started](docs/getting-started.md), then work through the [access-control review example](docs/access-control-walkthrough.md). The guide documents explicit file loading and clearly states integration validation limits.
+
 ## Safety and limitations
 
 - Never upload confidential customer code to an external model without permission.
