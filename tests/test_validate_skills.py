@@ -8,15 +8,16 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from validate_skills import validate  # noqa: E402
 
+_TEMP_DIRS: list[tempfile.TemporaryDirectory] = []
+
 
 def make_skill(contents: str, dirname: str = "solidity-security-review") -> Path:
     temp = tempfile.TemporaryDirectory()
-    # Keep the temporary directory alive through the returned Path.
+    _TEMP_DIRS.append(temp)
     holder = Path(temp.name) / dirname
     holder.mkdir()
     file_path = holder / "SKILL.md"
     file_path.write_text(contents, encoding="utf-8")
-    file_path._temp_owner = temp  # type: ignore[attr-defined]
     return file_path
 
 
