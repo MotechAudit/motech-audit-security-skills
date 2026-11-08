@@ -3,7 +3,7 @@
 # Motech Audit Security Skills
 
 [![Latest release](https://img.shields.io/github/v/release/MotechAudit/motech-audit-security-skills)](https://github.com/MotechAudit/motech-audit-security-skills/releases/latest)
-[![Foundry tests](https://github.com/MotechAudit/motech-audit-security-skills/actions/workflows/foundry-tests.yml/badge.svg)](https://github.com/MotechAudit/motech-audit-security-skills/actions/workflows/foundry-tests.yml)
+[![Foundry tests](https://github.com/MotechAudit/motech-audit-security-skills/actions/workflows/foundry-tests.yml/badge.svg)](https://github.com/MotechAudit/motech-audit-security-skills/actions/workflows/foundry-tests.yml)\n[![Skill validation](https://github.com/MotechAudit/motech-audit-security-skills/actions/workflows/validate-skills.yml/badge.svg)](https://github.com/MotechAudit/motech-audit-security-skills/actions/workflows/validate-skills.yml)
 
 Open-source agent skills for Ethereum smart contract security reviews, maintained by **Motech Audit**.
 
@@ -21,6 +21,14 @@ Use the `skills/solidity-security-review/SKILL.md` workflow to review Solidity c
 4. Independently reproduce suspected vulnerabilities using Foundry or other appropriate tools before treating them as confirmed.
 
 For a complete first run, follow [Getting started](docs/getting-started.md), then work through the [access-control review example](docs/access-control-walkthrough.md). The guide documents explicit file loading and clearly states integration validation limits.
+
+### Install with the skills CLI
+
+```bash
+npx skills add MotechAudit/motech-audit-security-skills --skill solidity-security-review
+```
+
+See [Agent installation](docs/agent-installation.md) for Codex-specific, global, and manual installation instructions.
 
 ## Safety and limitations
 
@@ -56,7 +64,7 @@ The tests are also executed by [Foundry Security Examples](https://github.com/Mo
 
 - [x] Add reproducible Solidity fixtures and Foundry tests
 - [x] Add CI validation for examples
-- [ ] Document agent integrations and version compatibility
+- [x] Document portable CLI and manual installation paths\n- [ ] Publish a tested agent-version compatibility matrix
 - [x] Publish initial v0.1.0 release and submit ethereum.org developer-tool suggestion ([issue #19684](https://github.com/ethereum/ethereum-org-website/issues/19684))
 
 ## Contributing
