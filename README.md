@@ -3,7 +3,8 @@
 # Motech Audit Security Skills
 
 [![Latest release](https://img.shields.io/github/v/release/MotechAudit/motech-audit-security-skills)](https://github.com/MotechAudit/motech-audit-security-skills/releases/latest)
-[![Foundry tests](https://github.com/MotechAudit/motech-audit-security-skills/actions/workflows/foundry-tests.yml/badge.svg)](https://github.com/MotechAudit/motech-audit-security-skills/actions/workflows/foundry-tests.yml)\n[![Skill validation](https://github.com/MotechAudit/motech-audit-security-skills/actions/workflows/validate-skills.yml/badge.svg)](https://github.com/MotechAudit/motech-audit-security-skills/actions/workflows/validate-skills.yml)
+[![Foundry tests](https://github.com/MotechAudit/motech-audit-security-skills/actions/workflows/foundry-tests.yml/badge.svg)](https://github.com/MotechAudit/motech-audit-security-skills/actions/workflows/foundry-tests.yml)
+[![Skill validation](https://github.com/MotechAudit/motech-audit-security-skills/actions/workflows/validate-skills.yml/badge.svg)](https://github.com/MotechAudit/motech-audit-security-skills/actions/workflows/validate-skills.yml)
 
 Open-source agent skills for Ethereum smart contract security reviews, maintained by **Motech Audit**.
 
@@ -64,7 +65,8 @@ The tests are also executed by [Foundry Security Examples](https://github.com/Mo
 
 - [x] Add reproducible Solidity fixtures and Foundry tests
 - [x] Add CI validation for examples
-- [x] Document portable CLI and manual installation paths\n- [ ] Publish a tested agent-version compatibility matrix
+- [x] Document portable CLI and manual installation paths
+- [ ] Publish a tested agent-version compatibility matrix
 - [x] Publish initial v0.1.0 release and submit ethereum.org developer-tool suggestion ([issue #19684](https://github.com/ethereum/ethereum-org-website/issues/19684))
 
 ## Contributing
