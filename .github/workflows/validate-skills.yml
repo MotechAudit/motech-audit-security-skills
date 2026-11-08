@@ -5,11 +5,13 @@ on:
     paths:
       - "skills/**"
       - "scripts/validate_skills.py"
+      - "tests/**"
       - ".github/workflows/validate-skills.yml"
   pull_request:
     paths:
       - "skills/**"
       - "scripts/validate_skills.py"
+      - "tests/**"
       - ".github/workflows/validate-skills.yml"
   workflow_dispatch:
 
@@ -24,5 +26,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Validate skills
+      - name: Test validator
+        run: python -m unittest discover -s tests -v
+      - name: Validate published skills
         run: python scripts/validate_skills.py
