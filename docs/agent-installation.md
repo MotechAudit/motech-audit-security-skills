@@ -24,6 +24,22 @@ npx skills add MotechAudit/motech-audit-security-skills --skill solidity-securit
 
 The CLI can configure agent-specific directories. Review the repository and skill instructions before installing, inspect the CLI output, and check which files or links were created.
 
+## Install the focused vulnerability detector
+
+Project-local installation:
+
+```bash
+npx skills add MotechAudit/motech-audit-security-skills --skill solidity-vulnerability-detection -a codex -y
+```
+
+Install both skills together:
+
+```bash
+npx skills add MotechAudit/motech-audit-security-skills --skill solidity-security-review --skill solidity-vulnerability-detection -a codex -y
+```
+
+Use the broad review workflow for an end-to-end assessment and the focused detector when investigating concrete vulnerability hypotheses. They are complementary workflows, not independent audit certifications.
+
 ## Manual installation
 
 If you do not use the CLI, copy the entire `skills/solidity-security-review` directory into the skill directory supported by your agent. Follow that agent's current documentation for the exact location and whether it needs a restart or reload.
