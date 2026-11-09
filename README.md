@@ -51,13 +51,6 @@ See [Agent installation](docs/agent-installation.md) for Codex-specific, global,
 | Solidity Security Review | Broad, end-to-end review workflow | [Skill](skills/solidity-security-review/SKILL.md) |
 | Solidity vulnerability detection | Falsifiable hypotheses, attack-path tracing, validation planning, and evidence-based triage | [Skill](skills/solidity-vulnerability-detection/SKILL.md) · [Detection checklist](skills/solidity-vulnerability-detection/references/detection-checklist.md) · [Evidence and reporting](skills/solidity-vulnerability-detection/references/evidence-and-reporting.md) |
 
-## Available skills
-
-| Skill | Purpose | Resources |
-| --- | --- | --- |
-| Solidity Security Review | Broad, end-to-end review workflow | [Skill](skills/solidity-security-review/SKILL.md) |
-| Solidity Vulnerability Detection | Falsifiable hypotheses, attack-path tracing, validation planning, and evidence-based triage | [Skill](skills/solidity-vulnerability-detection/SKILL.md) · [Detection checklist](skills/solidity-vulnerability-detection/references/detection-checklist.md) · [Evidence and reporting](skills/solidity-vulnerability-detection/references/evidence-and-reporting.md) |
-
 ## Reproducible security examples
 
 This repository contains educational vulnerability/mitigation examples with Foundry regression tests:
