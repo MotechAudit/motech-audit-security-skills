@@ -14,6 +14,12 @@ Open-source agent skills for Ethereum smart contract security reviews, maintaine
 
 Use the `skills/solidity-security-review/SKILL.md` workflow to review Solidity code, identify trust boundaries, enumerate privileged functions, investigate common vulnerability classes, and produce evidence-based findings. Every suspected issue must include a concrete code location, exploit preconditions, impact, and verification status.
 
+## Focused skill: Solidity Vulnerability Detection
+
+Use `skills/solidity-vulnerability-detection/SKILL.md` when you need a focused vulnerability hunt: generate falsifiable hypotheses, trace attacker-controlled paths, assess preconditions and impact, validate candidates with local tests, and report evidence without overstating certainty.
+
+The skill includes a reusable detection checklist, evidence/status definitions, a finding template, and a fictional sample triage. It complements the broader Solidity Security Review skill rather than replacing it.
+
 ## How to use
 
 1. Open `skills/solidity-security-review/SKILL.md` in your AI coding assistant's project context.
@@ -29,7 +35,7 @@ For a complete first run, follow [Getting started](docs/getting-started.md), the
 npx skills add MotechAudit/motech-audit-security-skills --skill solidity-security-review
 ```
 
-See [Agent installation](docs/agent-installation.md) for Codex-specific, global, and manual installation instructions.
+See [Agent installation](docs/agent-installation.md) for Codex-specific, global, and manual installation instructions. To install only the focused detector, use `--skill solidity-vulnerability-detection`.
 
 ## Safety and limitations
 
@@ -37,6 +43,13 @@ See [Agent installation](docs/agent-installation.md) for Codex-specific, global,
 - Do not claim a complete audit or guarantee that code is secure.
 - Distinguish confirmed findings from hypotheses and informational observations.
 - Do not fabricate tool output, line numbers, or exploit demonstrations.
+
+## Available skills
+
+| Skill | Purpose | Resources |
+| --- | --- | --- |
+| Solidity Security Review | Broad, end-to-end review workflow | [Skill](skills/solidity-security-review/SKILL.md) |
+| Solidity vulnerability detection | Falsifiable hypotheses, attack-path tracing, validation planning, and evidence-based triage | [Skill](skills/solidity-vulnerability-detection/SKILL.md) · [Detection checklist](skills/solidity-vulnerability-detection/references/detection-checklist.md) · [Evidence and reporting](skills/solidity-vulnerability-detection/references/evidence-and-reporting.md) |
 
 ## Reproducible security examples
 
