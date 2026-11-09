@@ -35,7 +35,7 @@ For a complete first run, follow [Getting started](docs/getting-started.md), the
 npx skills add MotechAudit/motech-audit-security-skills --skill solidity-security-review
 ```
 
-See [Agent installation](docs/agent-installation.md) for Codex-specific, global, and manual installation instructions. To install only the focused detector, use `--skill solidity-vulnerability-detection`.
+See [Agent installation](docs/agent-installation.md) for Codex-specific, global, and manual installation instructions. Install the focused detector with `npx skills add MotechAudit/motech-audit-security-skills --skill solidity-vulnerability-detection`.
 
 ## Safety and limitations
 
@@ -50,6 +50,13 @@ See [Agent installation](docs/agent-installation.md) for Codex-specific, global,
 | --- | --- | --- |
 | Solidity Security Review | Broad, end-to-end review workflow | [Skill](skills/solidity-security-review/SKILL.md) |
 | Solidity vulnerability detection | Falsifiable hypotheses, attack-path tracing, validation planning, and evidence-based triage | [Skill](skills/solidity-vulnerability-detection/SKILL.md) · [Detection checklist](skills/solidity-vulnerability-detection/references/detection-checklist.md) · [Evidence and reporting](skills/solidity-vulnerability-detection/references/evidence-and-reporting.md) |
+
+## Available skills
+
+| Skill | Purpose | Resources |
+| --- | --- | --- |
+| Solidity Security Review | Broad, end-to-end review workflow | [Skill](skills/solidity-security-review/SKILL.md) |
+| Solidity Vulnerability Detection | Falsifiable hypotheses, attack-path tracing, validation planning, and evidence-based triage | [Skill](skills/solidity-vulnerability-detection/SKILL.md) · [Detection checklist](skills/solidity-vulnerability-detection/references/detection-checklist.md) · [Evidence and reporting](skills/solidity-vulnerability-detection/references/evidence-and-reporting.md) |
 
 ## Reproducible security examples
 
