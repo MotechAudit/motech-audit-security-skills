@@ -50,7 +50,7 @@ This repository contains educational vulnerability/mitigation examples with Foun
 
 The reentrancy example demonstrates an external call before balance updates; the access-control example demonstrates an unrestricted privileged withdrawal; the delegatecall example demonstrates an unauthorized storage-slot overwrite. See [`docs/delegatecall-security.md`](docs/delegatecall-security.md) for details. **The vulnerable contract is for education only; never deploy it with real assets.**
 
-Prerequisite: install [Foundry](https://book.getfoundry.sh/getting-started/installation).
+Prerequisite: install [Foundry](https://book.getfoundry.sh/getting-started/installation). See the [testing guide](docs/testing.md) for install steps, how to run the tests, and what each test demonstrates. 
 
 ```bash
 git clone https://github.com/MotechAudit/motech-audit-security-skills.git
