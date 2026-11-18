@@ -4,7 +4,7 @@ This repository publishes reusable Agent Skills in the portable `SKILL.md` direc
 
 ## Install with the skills CLI
 
-The skills CLI requires Node.js 22.20 or later and can install one or more skills from a GitHub repository:
+The skills CLI requires Node.js 22.20 or later. Install each Motech skill with its own command:
 
 ```bash
 npx skills add MotechAudit/motech-audit-security-skills --skill solidity-security-review
@@ -32,13 +32,29 @@ Project-local installation:
 npx skills add MotechAudit/motech-audit-security-skills --skill solidity-vulnerability-detection -a codex -y
 ```
 
-Install both skills together:
-
-```bash
-npx skills add MotechAudit/motech-audit-security-skills --skill solidity-security-review --skill solidity-vulnerability-detection -a codex -y
-```
+After both commands finish, verify that the two `SKILL.md` files exist under the destination reported by the CLI. With project-local Codex installation, Codex scans `.agents/skills` from the working directory up to the repository root. User-level skills are scanned from `~/.agents/skills`.
 
 Use the broad review workflow for an end-to-end assessment and the focused detector when investigating concrete vulnerability hypotheses. They are complementary workflows, not independent audit certifications.
+
+## Codex-specific installation
+
+Codex can load repository skills from `.agents/skills` and user skills from `~/.agents/skills`. For a repeatable project-local setup, run the skills CLI from the root of your test project:
+
+```bash
+npx skills add MotechAudit/motech-audit-security-skills \
+  --skill solidity-security-review \
+  --skill solidity-vulnerability-detection \
+  -a codex -y
+```
+
+Alternatively, use Codex's built-in `$skill-installer` and ask it to install each public skill directory:
+
+- `https://github.com/MotechAudit/motech-audit-security-skills/tree/main/skills/solidity-security-review`
+- `https://github.com/MotechAudit/motech-audit-security-skills/tree/main/skills/solidity-vulnerability-detection`
+
+After installation, open Codex's `/skills` selector and confirm both skill names are visible. If they are missing, verify the actual destination path and restart Codex.
+
+See [Codex real-agent integration test](codex-integration-test.md) for the three acceptance scenarios, expected analysis signals, and an evidence log. Repository CI validates skill metadata; it does not prove successful installation or behavior in a particular Codex version.
 
 ## Manual installation
 
