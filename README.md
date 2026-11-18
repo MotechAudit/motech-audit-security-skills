@@ -37,6 +37,10 @@ npx skills add MotechAudit/motech-audit-security-skills --skill solidity-securit
 
 See [Agent installation](docs/agent-installation.md) for Codex-specific, global, and manual installation instructions. Install the focused detector with `npx skills add MotechAudit/motech-audit-security-skills --skill solidity-vulnerability-detection`.
 
+## Codex integration verification
+
+Follow the [Codex real-agent integration test](docs/codex-integration-test.md) to install both skills, confirm discovery and invocation in Codex, and run three authorized local fixture reviews. CI validation is separate from real-agent compatibility testing.
+
 ## Safety and limitations
 
 - Never upload confidential customer code to an external model without permission.
