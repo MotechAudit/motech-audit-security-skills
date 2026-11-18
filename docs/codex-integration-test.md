@@ -25,13 +25,11 @@ If a command is unavailable, record `not installed`; do not infer a version.
 From the root of a throwaway test project, run:
 
 ```bash
-npx skills add MotechAudit/motech-audit-security-skills \
-  --skill solidity-security-review \
-  --skill solidity-vulnerability-detection \
-  -a codex -y
+npx skills add MotechAudit/motech-audit-security-skills --skill solidity-security-review -a codex -y
+npx skills add MotechAudit/motech-audit-security-skills --skill solidity-vulnerability-detection -a codex -y
 ```
 
-This is a project-local installation. The expected Codex project skill directory is `.agents/skills/`. Check that both files exist:
+This is a project-local installation. The expected Codex project skill directory is `.agents/skills/`. Codex also supports user-level skills in `~/.agents/skills/`. Check the project-local installation:
 
 ```bash
 test -f .agents/skills/solidity-security-review/SKILL.md \
@@ -45,11 +43,11 @@ If you prefer Codex's built-in installer, invoke `$skill-installer` in Codex and
 - `https://github.com/MotechAudit/motech-audit-security-skills/tree/main/skills/solidity-security-review`
 - `https://github.com/MotechAudit/motech-audit-security-skills/tree/main/skills/solidity-vulnerability-detection`
 
-Follow the installer output and verify where it placed each skill. Codex scans project-level `.agents/skills` and user-level `~/.agents/skills`; restart Codex if newly installed skills do not appear in the skill selector.
+Follow the installer output and verify where it placed each skill. Current Codex documentation lists project-level `.agents/skills` (including the repository root) and user-level `~/.agents/skills` as discovery locations. Restart Codex if newly installed skills do not appear in the skill selector.
 
 ## 3. Confirm discovery and explicit invocation
 
-Open the test project in Codex and run `/skills` (CLI/IDE) to inspect available skills. Record whether both names appear.
+Open the test project in Codex and run `/skills` to inspect available skills. Record whether both names appear. If you installed them under `~/.agents/skills`, verify those exact paths instead of expecting project-local files.
 
 Then invoke each explicitly:
 
