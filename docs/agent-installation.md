@@ -4,7 +4,7 @@ This repository publishes reusable Agent Skills in the portable `SKILL.md` direc
 
 ## Install with the skills CLI
 
-The skills CLI requires Node.js 22.20 or later and can install one or more skills from a GitHub repository:
+The skills CLI requires Node.js 22.20 or later. Install each Motech skill with its own command:
 
 ```bash
 npx skills add MotechAudit/motech-audit-security-skills --skill solidity-security-review
@@ -32,11 +32,7 @@ Project-local installation:
 npx skills add MotechAudit/motech-audit-security-skills --skill solidity-vulnerability-detection -a codex -y
 ```
 
-Install both skills together:
-
-```bash
-npx skills add MotechAudit/motech-audit-security-skills --skill solidity-security-review --skill solidity-vulnerability-detection -a codex -y
-```
+After both commands finish, verify that the two `SKILL.md` files exist under the destination reported by the CLI. With project-local Codex installation, Codex scans `.agents/skills` from the working directory up to the repository root. User-level skills are scanned from `~/.agents/skills`.
 
 Use the broad review workflow for an end-to-end assessment and the focused detector when investigating concrete vulnerability hypotheses. They are complementary workflows, not independent audit certifications.
 
