@@ -59,9 +59,10 @@ This repository contains educational vulnerability/mitigation examples with Foun
 | --- | --- | --- | --- |
 | Reentrancy | [`VulnerableVault.sol`](src/VulnerableVault.sol) | [`SafeVault.sol`](src/SafeVault.sol) | [`Reentrancy.t.sol`](test/Reentrancy.t.sol) |
 | Arbitrary delegatecall | [`VulnerableDelegatecallVault.sol`](src/VulnerableDelegatecallVault.sol) | [`SafeDelegatecallVault.sol`](src/SafeDelegatecallVault.sol) | [`Delegatecall.t.sol`](test/Delegatecall.t.sol) |
+| Input validation — maximum supply | [`VulnerableCappedMint.sol`](src/VulnerableCappedMint.sol) | [`FixedCappedMint.sol`](src/FixedCappedMint.sol) | [`InputValidation.t.sol`](test/InputValidation.t.sol) · [Case notes](docs/input-validation.md) |
 | Missing access control | [`VulnerableAccessVault.sol`](src/VulnerableAccessVault.sol) | [`SafeAccessVault.sol`](src/SafeAccessVault.sol) | [`AccessControl.t.sol`](test/AccessControl.t.sol) |
 
-The reentrancy example demonstrates an external call before balance updates; the access-control example demonstrates an unrestricted privileged withdrawal; the delegatecall example demonstrates an unauthorized storage-slot overwrite. See [`docs/delegatecall-security.md`](docs/delegatecall-security.md) for details. **The vulnerable contract is for education only; never deploy it with real assets.**
+The input-validation example demonstrates why mint functions must enforce declared supply bounds across repeated calls; it preserves the same owner authorization in the vulnerable and mitigated fixtures. The reentrancy example demonstrates an external call before balance updates; the access-control example demonstrates an unrestricted privileged withdrawal; the delegatecall example demonstrates an unauthorized storage-slot overwrite. See [`docs/delegatecall-security.md`](docs/delegatecall-security.md) for details. **The vulnerable contract is for education only; never deploy it with real assets.**
 
 Prerequisite: install [Foundry](https://book.getfoundry.sh/getting-started/installation).
 
@@ -81,6 +82,12 @@ The tests are also executed by [Foundry Security Examples](https://github.com/Mo
 - [x] Document portable CLI and manual installation paths
 - [ ] Publish a tested agent-version compatibility matrix
 - [x] Publish initial v0.1.0 release and submit ethereum.org developer-tool suggestion ([issue #19684](https://github.com/ethereum/ethereum-org-website/issues/19684))
+
+
+
+## Input validation case under review
+
+The [maximum-supply validation case](https://github.com/MotechAudit/motech-audit-security-skills/pull/12) is currently proposed for review. It is not part of the released version until merged.
 
 ## Contributing
 
