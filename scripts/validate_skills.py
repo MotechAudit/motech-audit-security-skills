@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Validate Agent Skills metadata and layout using only the Python standard library."""
+"""Validate Agent Skills metadata, layout, and local Markdown references."""
 from pathlib import Path
 import re
 import sys
+from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ROOT / "skills"
 NAME_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+MARKDOWN_LINK = re.compile(r"!?(?:\[[^\]]*\])\(([^)]+)\)")
 
 
 def scalar(frontmatter: str, key: str) -> str | None:
@@ -15,12 +17,45 @@ def scalar(frontmatter: str, key: str) -> str | None:
     if not match:
         return None
     value = match.group(1).strip()
-    if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"" + "'":
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"'":
         value = value[1:-1]
     return value
 
 
-def validate(path: Path) -> list[str]:
+def validate_local_links(path: Path, root: Path) -> list[str]:
+    """Check local Markdown links in a skill file without making network requests."""
+    errors: list[str] = []
+    try:
+        text = path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        return [f"{path}: cannot read file for link validation: {exc}"]
+
+    # Code samples contain literal Markdown syntax; they are not rendered links.
+    text = re.sub(r"(?ms)^\s*```.*?^\s*```\s*$", "", text)
+    text = re.sub(r"`[^`]*`", "", text)
+    root_resolved = root.resolve()
+
+    for match in MARKDOWN_LINK.finditer(text):
+        destination = match.group(1).strip()
+        if destination.startswith("<") and ">" in destination:
+            destination = destination[1:destination.index(">")]
+        parts = urlsplit(destination)
+        if parts.scheme or parts.netloc or not parts.path:
+            continue
+
+        target = (path.parent / unquote(parts.path)).resolve()
+        try:
+            target.relative_to(root_resolved)
+        except ValueError:
+            errors.append(f"{path}: local link escapes repository root: {destination}")
+            continue
+        if not target.exists():
+            errors.append(f"{path}: broken local link: {destination}")
+
+    return errors
+
+
+def validate(path: Path, root: Path | None = None) -> list[str]:
     errors: list[str] = []
     try:
         text = path.read_text(encoding="utf-8")
@@ -58,6 +93,8 @@ def validate(path: Path) -> list[str]:
     if len(text.splitlines()) > 500:
         errors.append(f"{path}: SKILL.md exceeds the recommended 500-line limit")
 
+    repository_root = root if root is not None else path.parent.parent
+    errors.extend(validate_local_links(path, repository_root))
     return errors
 
 
@@ -67,12 +104,15 @@ def main() -> int:
         print("No skills found", file=sys.stderr)
         return 1
 
-    errors = [error for path in paths for error in validate(path)]
+    errors = [error for path in paths for error in validate(path, ROOT)]
     if errors:
         print("\n".join(errors), file=sys.stderr)
         return 1
 
-    print(f"Validated {len(paths)} skill(s): " + ", ".join(p.parent.name for p in paths))
+    print(
+        f"Validated {len(paths)} skill(s), including local Markdown references: "
+        + ", ".join(p.parent.name for p in paths)
+    )
     return 0
 
 
