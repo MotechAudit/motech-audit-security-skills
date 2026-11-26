@@ -54,3 +54,7 @@ function withdraw(uint256 amount) external {
 
 ## Integrity rules
 Do not invent code references, test runs, CVSS scores, audit certifications, or security guarantees. Distinguish observed facts from reasoning. Treat AI output as assistance, not an independent formal audit report.
+
+## Related reproducible examples
+
+For educational vulnerable/mitigated fixtures and Foundry regression tests, consult the separate [Motech Solidity Security Lab](https://github.com/MotechAudit/motech-solidity-security-lab). The topic map is in the [Skills-to-Lab integration guide](../../docs/security-lab-integration.md). The Lab is a separate repository: its tests are not run automatically by this Skill, and results from its fixtures do not prove a different target contract secure.

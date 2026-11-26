@@ -51,6 +51,10 @@ See [Agent installation](docs/agent-installation.md) for Codex-specific, global,
 | Solidity Security Review | Broad, end-to-end review workflow | [Skill](skills/solidity-security-review/SKILL.md) |
 | Solidity vulnerability detection | Falsifiable hypotheses, attack-path tracing, validation planning, and evidence-based triage | [Skill](skills/solidity-vulnerability-detection/SKILL.md) · [Detection checklist](skills/solidity-vulnerability-detection/references/detection-checklist.md) · [Evidence and reporting](skills/solidity-vulnerability-detection/references/evidence-and-reporting.md) |
 
+## Working with the Solidity Security Lab
+
+The Skills workflows are complemented by Motech's separate [Solidity Security Lab](https://github.com/MotechAudit/motech-solidity-security-lab), which contains vulnerable/mitigated Solidity examples and reproducible Foundry tests. The two repositories are maintained and released independently; installing a Skill does not automatically install or run the Lab. See the [Skills-to-Lab integration guide](docs/security-lab-integration.md) for the topic map, test references, and recommended workflow.
+
 ## Reproducible security examples
 
 This repository contains educational vulnerability/mitigation examples with Foundry regression tests:
@@ -82,12 +86,6 @@ The tests are also executed by [Foundry Security Examples](https://github.com/Mo
 - [x] Document portable CLI and manual installation paths
 - [ ] Publish a tested agent-version compatibility matrix
 - [x] Publish initial v0.1.0 release and submit ethereum.org developer-tool suggestion ([issue #19684](https://github.com/ethereum/ethereum-org-website/issues/19684))
-
-
-
-## Input validation case under review
-
-The [maximum-supply validation case](https://github.com/MotechAudit/motech-audit-security-skills/pull/12) is currently proposed for review. It is not part of the released version until merged.
 
 ## Contributing
 
