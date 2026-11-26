@@ -85,9 +85,9 @@ The tests are also executed by [Foundry Security Examples](https://github.com/Mo
 
 
 
-### Open research case
+## Input validation case under review
 
-- **Input validation:** [Issue #3 — Add maximum-supply validation fixture and Foundry tests](https://github.com/MotechAudit/motech-audit-security-skills/issues/3). The implementation is available for review in the current pull request.
+The [maximum-supply validation case](https://github.com/MotechAudit/motech-audit-security-skills/pull/12) is currently proposed for review. It is not part of the released version until merged.
 
 ## Contributing
 
