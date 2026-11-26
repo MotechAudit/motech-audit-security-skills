@@ -51,6 +51,10 @@ See [Agent installation](docs/agent-installation.md) for Codex-specific, global,
 | Solidity Security Review | Broad, end-to-end review workflow | [Skill](skills/solidity-security-review/SKILL.md) |
 | Solidity vulnerability detection | Falsifiable hypotheses, attack-path tracing, validation planning, and evidence-based triage | [Skill](skills/solidity-vulnerability-detection/SKILL.md) · [Detection checklist](skills/solidity-vulnerability-detection/references/detection-checklist.md) · [Evidence and reporting](skills/solidity-vulnerability-detection/references/evidence-and-reporting.md) |
 
+## Skill quality validation
+
+The Python validator checks Skill metadata, layout, and local Markdown references in published `SKILL.md` files. Run the unit tests and validator with the commands above. These checks catch documentation and packaging errors; they do not benchmark AI findings, validate external URLs, or certify smart-contract security. See [Skill Quality Gates](docs/quality-gates.md).
+
 ## Working with the Solidity Security Lab
 
 The Skills workflows are complemented by Motech's separate [Solidity Security Lab](https://github.com/MotechAudit/motech-solidity-security-lab), which contains vulnerable/mitigated Solidity examples and reproducible Foundry tests. The two repositories are maintained and released independently; installing a Skill does not automatically install or run the Lab. See the [Skills-to-Lab integration guide](docs/security-lab-integration.md) for the topic map, test references, and recommended workflow.
@@ -74,6 +78,7 @@ Prerequisite: install [Foundry](https://book.getfoundry.sh/getting-started/insta
 git clone https://github.com/MotechAudit/motech-audit-security-skills.git
 cd motech-audit-security-skills
 forge test -vv
+python3 -m unittest discover -s tests -v
 python3 scripts/validate_skills.py
 ```
 
