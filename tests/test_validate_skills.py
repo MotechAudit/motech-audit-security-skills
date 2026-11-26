@@ -102,7 +102,7 @@ class ValidateSkillsTests(unittest.TestCase):
     def test_ignores_markdown_examples_inside_fenced_code(self):
         path, root = make_skill(
             "---\nname: solidity-security-review\ndescription: Review code.\n---\n"
-            "# Review\\n\\n" + chr(96) * 3 + "md\\n[Not a real link](./missing.md)\\n" + chr(96) * 3 + "\\n"
+            "# Review\n\n" + chr(96) * 3 + "md\n[Not a real link](./missing.md)\n" + chr(96) * 3 + "\n"
         )
         self.assertEqual(validate(path, root), [])
 
