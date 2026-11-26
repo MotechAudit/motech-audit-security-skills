@@ -51,6 +51,10 @@ See [Agent installation](docs/agent-installation.md) for Codex-specific, global,
 | Solidity Security Review | Broad, end-to-end review workflow | [Skill](skills/solidity-security-review/SKILL.md) |
 | Solidity vulnerability detection | Falsifiable hypotheses, attack-path tracing, validation planning, and evidence-based triage | [Skill](skills/solidity-vulnerability-detection/SKILL.md) · [Detection checklist](skills/solidity-vulnerability-detection/references/detection-checklist.md) · [Evidence and reporting](skills/solidity-vulnerability-detection/references/evidence-and-reporting.md) |
 
+## Codex agent acceptance testing
+
+The repository includes a reproducible [Codex Agent Acceptance Testing protocol](docs/codex-agent-acceptance-testing.md) with positive and negative Solidity fixtures, blind-input preparation instructions, a standard prompt, scoring rules, and a result sheet. The protocol is prepared but must not be described as completed until real Codex runs and transcripts are recorded.
+
 ## Skill quality validation
 
 The Python validator checks Skill metadata, layout, and local Markdown references in published `SKILL.md` files. Run the unit tests and validator with the commands above. These checks catch documentation and packaging errors; they do not benchmark AI findings, validate external URLs, or certify smart-contract security. See [Skill Quality Gates](docs/quality-gates.md).
